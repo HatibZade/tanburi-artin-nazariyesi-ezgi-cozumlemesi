@@ -3,7 +3,7 @@ import streamlit as st
 
 st.set_page_config(page_title="Tanburi Küçük Artin - Makam Tahlil", layout="wide")
 
-DATA_PATH = "data/tanburi_kucuk_artin_makam_tahlil_full_v1.json"
+DATA_PATH = "data/tanburi_kucuk_artin_makam_tahlil_full_v1_3.json"
 
 @st.cache_data
 def load_data():
@@ -14,7 +14,7 @@ DATA = load_data()
 makamlar = DATA.get("makamlar", [])
 
 st.title("Tanburi Küçük Artin Nazariyesine Göre Makam/Terkib Tahlilleri")
-st.caption("Kaynak: Musikî Edvârı (\"bir mızrab\" seyir dizileri)")
+st.caption('Kaynak: Musikî Edvârı ("bir mızrab" seyir dizileri). Perde sınıflaması: Asıl perdeler + Nim perdeler.')
 
 left, right = st.columns([1, 2], gap="large")
 
@@ -45,8 +45,8 @@ with right:
 
         st.markdown("### Kullanılan perdeler")
         kp = a.get("kullanilan_perdeler", {})
-        st.write("**Tam:**", ", ".join(kp.get("tam", [])) or "—")
-        st.write("**Nim:**", ", ".join(kp.get("nim", [])) or "—")
+        st.write("**Asıl perdeler:**", ", ".join(kp.get("asil_perdeler", [])) or "—")
+        st.write("**Nim perdeler:**", ", ".join(kp.get("nim_perdeler", [])) or "—")
 
         st.markdown("### Seyir (bir mızrab)")
         st.code(" → ".join(m.get("evidence", {}).get("seyir_sequence", [])) or "—", language="text")
