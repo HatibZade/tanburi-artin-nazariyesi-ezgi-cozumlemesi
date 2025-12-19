@@ -1,1 +1,1 @@
-v7: Nim perdelere Acem-Aşîran eklendi, alfabetik.
+FINAL: Motor + UI + Artin nim/tam sistemi kilitli.
