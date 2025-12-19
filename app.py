@@ -1,23 +1,15 @@
 
-import json
-import streamlit as st
+import json, streamlit as st
 
 st.set_page_config(page_title="Tanburi Artin – Makam Olasılık Motoru", layout="wide")
 
 DATA = json.load(open("data/tanburi_kucuk_artin_data.json", encoding="utf-8"))
 
-ASIL_CORE = ['Yegâh', 'Aşîrân', 'Irâk', 'Rast', 'Dügâh', 'Segâh', 'Çargâh', 'Nevâ', 'Hüseynî', 'Evc', 'Gerdâniye', 'Muhayyer', 'Tiz Segâh', 'Tiz Çargâh', 'Tiz Nevâ']
-NIM_OPTIONS = ['Şorizen (Nerm Bayâtî)', 'Pest Hicaz (Nerm Hicaz)', 'Geveşt', 'Zengûle', 'Nihâvend (Kürdî)', 'Buselik', 'Sabâ', 'Hicaz', 'Bayâtî', 'Hisâr', 'Acem', 'Mahur', 'Şehnaz', 'Sünbüle']
-ALLOWED = ['Yegâh', 'Aşîrân', 'Irâk', 'Rast', 'Dügâh', 'Segâh', 'Çargâh', 'Nevâ', 'Hüseynî', 'Evc', 'Gerdâniye', 'Muhayyer', 'Tiz Segâh', 'Tiz Çargâh', 'Tiz Nevâ', 'Şorizen (Nerm Bayâtî)', 'Pest Hicaz (Nerm Hicaz)', 'Geveşt', 'Zengûle', 'Nihâvend (Kürdî)', 'Buselik', 'Sabâ', 'Hicaz', 'Bayâtî', 'Hisâr', 'Acem', 'Mahur', 'Şehnaz', 'Sünbüle']
+ASIL_CORE = ['Aşîrân', 'Dügâh', 'Evc', 'Gerdâniye', 'Hüseynî', 'Irâk', 'Muhayyer', 'Nevâ', 'Rast', 'Segâh', 'Tiz Nevâ', 'Tiz Segâh', 'Tiz Çargâh', 'Yegâh', 'Çargâh']
+NIM_OPTIONS = ['Acem', 'Bayâtî', 'Buselik', 'Geveşt', 'Hicaz', 'Hisâr', 'Mahur', 'Nihâvend (Kürdî)', 'Pest Hicaz (Nerm Hicaz)', 'Sabâ', 'Sünbüle', 'Zengûle', 'Şehnaz', 'Şorizen (Nerm Bayâtî)']
+ALLOWED = ['Aşîrân', 'Dügâh', 'Evc', 'Gerdâniye', 'Hüseynî', 'Irâk', 'Muhayyer', 'Nevâ', 'Rast', 'Segâh', 'Tiz Nevâ', 'Tiz Segâh', 'Tiz Çargâh', 'Yegâh', 'Çargâh', 'Acem', 'Bayâtî', 'Buselik', 'Geveşt', 'Hicaz', 'Hisâr', 'Mahur', 'Nihâvend (Kürdî)', 'Pest Hicaz (Nerm Hicaz)', 'Sabâ', 'Sünbüle', 'Zengûle', 'Şehnaz', 'Şorizen (Nerm Bayâtî)']
 
 st.title("Tanburi Küçük Artin – Makam Olasılık Motoru (Kilitli)")
-
-st.markdown("""
-**Tanburi Küçük Artin – 17’li Sistem**
-Bu uygulamada **nim perdeler**, Artin’in tarif ettiği adlarla
-**isim isim** tanımlıdır.  
-Liste dışında nim perde **yoktur**.
-""")
 
 st.subheader("İncelenen Eser – Giriş")
 
@@ -37,4 +29,4 @@ with c3:
     asil = st.multiselect("Asıl Perdeler (tam)", ASIL_CORE)
     nim = st.multiselect("Nim Perdeler (Artin)", NIM_OPTIONS)
 
-st.info("Nim perdeler (Artin): " + " • ".join(NIM_OPTIONS))
+st.caption("Perde listeleri alfabetik sıradadır.")
