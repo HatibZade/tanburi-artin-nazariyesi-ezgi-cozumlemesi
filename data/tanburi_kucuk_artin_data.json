@@ -4,7 +4,7 @@
     "work": "Musiki Edvarı (18. yy)",
     "edition": "Eugenia Popescu-Judetz (ed.), Tanburi Küçük Artin: A Musical Treatise of the Eighteenth Century, Pan Yayınları, 2002"
   },
-  "schema_version": "motor-locked-2",
+  "schema_version": "motor-locked-4",
   "generation": {
     "from_pdf": "Tanburi Küçük Artin a musical treatise of the eighteenth century 0-59_.pdf",
     "method": "Regex + OCR-artifact cleanup over 'bir mızrab' seyir dizileri",
@@ -4094,5 +4094,18 @@
     "alt_ust_sinir": "Tam + Nim (ALLOWED)",
     "asil_perdeler": "Tüm tam perdeler (ASIL_CORE)",
     "nim_perdeler": "Tüm nim perdeler (NIM_OPTIONS)"
+  },
+  "nim_definition": {
+    "rule": "Aşağıdaki perdeler Tanburi Artin (17'li sistem) kapsamında nim olarak kullanılır.",
+    "nim_list": [
+      "Zengûle",
+      "Hicaz",
+      "Sabâ",
+      "Bayâtî",
+      "Hisâr",
+      "Acem",
+      "Acem-Aşîran",
+      "Buselik"
+    ]
   }
 }
