@@ -1,16 +1,21 @@
 import json
+import os
 import streamlit as st
 
 st.set_page_config(page_title="Tanburi Küçük Artin - Makam Tahlil", layout="wide")
 
-DATA_PATH = "data/tanburi_kucuk_artin_makam_tahlil_full_v1_3.json"
+DATA_PATH = "data/tanburi_kucuk_artin_data.json"
 
-@st.cache_data
-def load_data():
-    with open(DATA_PATH, "r", encoding="utf-8") as f:
+def _cache_key(path: str):
+    stat = os.stat(path)
+    return (stat.st_size, int(stat.st_mtime))
+
+@st.cache_data(show_spinner=False)
+def load_data(path: str, key):
+    with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
-DATA = load_data()
+DATA = load_data(DATA_PATH, _cache_key(DATA_PATH))
 makamlar = DATA.get("makamlar", [])
 
 st.title("Tanburi Küçük Artin Nazariyesine Göre Makam/Terkib Tahlilleri")
@@ -34,6 +39,7 @@ with right:
         m = filtered[idx]
         a = m.get("analysis", {})
         st.subheader(m.get("name_tr","(adsız)"))
+
         c1, c2, c3 = st.columns(3)
         c1.metric("Âgâz", a.get("agaz", {}).get("perde", "—"))
         c2.metric("Merkez", a.get("merkez", {}).get("perde", "—"))

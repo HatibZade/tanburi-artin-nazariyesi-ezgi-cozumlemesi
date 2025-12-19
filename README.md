@@ -1,28 +1,18 @@
-# Tanburi Küçük Artin Nazariyesine Göre Makam/Terkib Tahlil Verisi
+# Tanburi Küçük Artin – Makam/Terkib Tahlil Veri Seti (Clean)
 
-Bu repo, Tanburi Küçük Artin'in **Musikî Edvârı** metninde yer alan "**bir mızrab**" tariflerinden çıkarılmış
-makam/şube ilerleyişlerini, Streamlit/Python uygulamalarında **doğrudan import edilebilir** bir veri seti olarak sunar.
+Bu repo **tek isimli** veri dosyası kullanır; sürüm karmaşası yoktur.
 
-## İçerik
-- `data/tanburi_kucuk_artin_makam_tahlil_full_v1_3.json` : JSON veri
-- `data/tanburi_kucuk_artin_makam_tahlil_full_v1_3.py` : Python modülü (DATA sözlüğü)
-- `app.py` : Basit Streamlit görüntüleyici
-- `requirements.txt` : Çalıştırma bağımlılıkları
+## Dosyalar
+- `data/tanburi_kucuk_artin_data.json` : JSON veri (Streamlit bunu okur)
+- `data/tanburi_kucuk_artin_data.py` : Python modülü (DATA sözlüğü)
+- `app.py` : Streamlit görüntüleyici
 
-## Perde Sınıflaması (v1.3)
-Bu sürümde `kullanilan_perdeler` alanı ikiye ayrılır:
-- `asil_perdeler`: Kullanıcı tarafından tanımlanan **asıl perde adları** kümesinde olanlar
-- `nim_perdeler`: Bu kümenin dışında kalanlar
+## Perde sınıflaması
+- **Asıl perdeler** (kullanıcı tanımı): yegah, aşiran, ırak, rast, dügah, segah, çargah, neva, hüseyni, evc, gerdaniye, muhayyer, tiz segah, tiz çargah, tiz neva
+- Bu listenin dışında kalanlar: **Nim perdeler**
 
-Kullanılan asıl perde adları:
-- yegah, aşiran, ırak, rast, dügah, segah, çargah, neva, hüseyni, evc, gerdaniye, muhayyer, tiz segah, tiz çargah, tiz neva
-
-## Hızlı Başlangıç (Streamlit)
+## Çalıştırma
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
 ```
-
-## Lisans
-Bu repo, **veri yapısı ve kod** açısından MIT lisansı ile sunulmuştur.
-Kaynak metnin (kitabın/PDF'in) telif hakları ilgili yayıncıya aittir.
