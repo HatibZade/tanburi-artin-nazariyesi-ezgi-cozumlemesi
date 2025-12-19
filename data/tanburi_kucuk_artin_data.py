@@ -5584,5 +5584,25 @@ DATA = {
       "hicaz": "Dik kürdi davranışı segâh olarak değerlendirilir.",
       "sehnaz": "Şehnaz terkibinde dik acem yerine evc kullanılır."
     }
+  },
+  "classification": {
+    "rule": "Perde adı normalize edilip ASIL_MAP anahtarlarıyla eşleşirse 'asıl', aksi halde 'nim'.",
+    "asil_map": {
+      "yegah": "Yegâh",
+      "asiran": "Aşîrân",
+      "irak": "Irâk",
+      "rast": "Rast",
+      "dugah": "Dügâh",
+      "segah": "Segâh",
+      "cargah": "Çargâh",
+      "neva": "Nevâ",
+      "huseyni": "Hüseynî",
+      "evc": "Evc",
+      "gerdaniye": "Gerdâniye",
+      "muhayyer": "Muhayyer",
+      "tiz segah": "Tiz Segâh",
+      "tiz cargah": "Tiz Çargâh",
+      "tiz neva": "Tiz Nevâ"
+    }
   }
 }
