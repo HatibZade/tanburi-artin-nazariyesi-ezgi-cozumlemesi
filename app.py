@@ -19,7 +19,7 @@ DATA = load_data(DATA_PATH, _cache_key(DATA_PATH))
 makamlar = DATA.get("makamlar", [])
 
 st.title("Tanburi Küçük Artin Nazariyesine Göre Makam/Terkib Tahlilleri")
-st.caption('Kaynak: Musikî Edvârı ("bir mızrab" seyir dizileri). Perde sınıflaması: Asıl perdeler + Nim perdeler.')
+st.caption('Kaynak: Musikî Edvârı ("bir mızrab" seyir dizileri). Perde sınıflaması: Asıl perdeler + Nim perdeler (kilitli).')
 
 left, right = st.columns([1, 2], gap="large")
 
