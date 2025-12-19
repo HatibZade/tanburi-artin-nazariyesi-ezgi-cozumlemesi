@@ -1,22 +1,21 @@
-# -*- coding: utf-8 -*-
-"""Tanburi Küçük Artin – 17'li Sistem veri seti (final)."""
-
 DATA = {
   "source": {
     "nazariyeci": "Tanburi Küçük Artin",
     "work": "Musiki Edvarı (18. yy)",
     "edition": "Eugenia Popescu-Judetz (ed.), Tanburi Küçük Artin: A Musical Treatise of the Eighteenth Century, Pan Yayınları, 2002"
   },
-  "schema_version": "clean-locked-2",
+  "schema_version": "clean-locked-3",
   "generation": {
     "from_pdf": "Tanburi Küçük Artin a musical treatise of the eighteenth century 0-59_.pdf",
     "method": "Regex + OCR-artifact cleanup over 'bir mızrab' seyir dizileri",
     "entry_count": 74
   },
   "notes": [
-    "Bu veri seti Tanburi Küçük Artin'in 17'li ses sistemi esas alınarak hazırlanmıştır.",
-    "Dik Kürdi, Dik Acem ve Dik Acem-Aşiran perdeleri Artin sisteminde bulunmaz; zorunlu olarak Segâh, Evc ve Irâk karşılıkları kullanılır.",
-    "Şehnaz terkibinde modern algıdaki dik acem perdesi Artin nazariyesinde Evc olarak değerlendirilir."
+    "v1.2 düzeltmesi: Segâh, Irâk, Eviç/Evc ve Hicâz/Hicaz adları 'nim' etiketinden çıkarılıp 'tam' listesine taşındı.",
+    "Düzeltme: Segâh, Irâk ve Eviç/Evc perdeleri 'nim' olarak etiketlenmez; bu veri setinde bunlar 'tam' listesine taşınmıştır. (Tam/Nim etiketleri uygulama amaçlıdır ve gerekirse kullanıcı tarafından yeniden eşlenebilir.)",
+    "Eserde Âgâz/Merkez/Karar/Alt-Üst sınır başlıkları sistematik olarak verilmediğinden; bu alanlar yalnızca 'bir mızrab' seyir dizilerinin başlangıç-bitiş ve tekrar/yoğunluk özelliklerinden türetilmiştir.",
+    "Alt/üst sınır, sınırlı bir perde-sıralama (rank) sözlüğü ile çözülebilen perdelerde hesaplanır; rank sözlüğünde olmayan perdeler için alt/üst 'unresolved' kalabilir.",
+    "Tam/Nim sınıflaması uygulama amaçlı pratik bir etiketlemedir; gerektiğinde uygulamada kullanıcı tarafından yeniden eşlenebilir."
   ],
   "rank_order_used": [
     "Yegah",
@@ -79,15 +78,15 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Neva",
             "Çargah",
-            "Segah",
             "Dügah",
             "Rast",
-            "Yegah"
+            "Yegah",
+            "Segah"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Bir mız rab dügah",
             "Nihavend"
           ]
@@ -136,16 +135,16 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Neva",
             "Hüseyni",
-            "Dügah"
+            "Dügah",
+            "Eviç",
+            "Hicaz"
           ],
-          "nim_perdeler": [
-            "Hicaz",
+          "nim": [
             "Buselik",
             "Bir mız rab hicaz",
-            "Eviç",
             "Bir nıızrab rast"
           ]
         }
@@ -186,15 +185,14 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Neva",
-            "Segah",
             "Dügah",
-            "Rast"
-          ],
-          "nim_perdeler": [
+            "Rast",
+            "Segah",
             "Hicaz"
-          ]
+          ],
+          "nim": []
         }
       }
     },
@@ -239,12 +237,12 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Çargah",
             "Dügah",
             "Rast"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Saha",
             "Nihavend",
             "Saba"
@@ -299,7 +297,7 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Neva",
             "Çargah",
             "Dügah",
@@ -307,7 +305,7 @@ DATA = {
             "Gerdaniye",
             "Rast"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Beyati",
             "Nihavend",
             "Mahur",
@@ -398,24 +396,24 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Neva",
             "Çargah",
             "Dügah",
             "Rast",
+            "Acem",
             "Hüseyni",
             "Aşiran",
             "Yegah",
             "Gerdaniye",
             "Muhayyer"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Beyati",
             "Buselik",
             "Geveşt",
             "Nihavend",
             "Saba",
-            "Acem",
             "Bir ıııız rab aşiran",
             "Mahur",
             "Sünbüle",
@@ -482,23 +480,23 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Gerdaniye",
+            "Acem",
             "Hüseyni",
             "Muhayyer",
             "Neva",
             "Çargah",
             "Dügah",
+            "Rast",
             "Segah",
-            "Rast"
+            "Eviç"
           ],
-          "nim_perdeler": [
-            "Acem",
+          "nim": [
             "Buselik",
             "Geveşt",
             "Zirgüle",
             "Buse lik",
-            "Eviç",
             "Mahur",
             "Beyati"
           ]
@@ -559,7 +557,7 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Neva",
             "Çargah",
             "Dügah",
@@ -567,7 +565,7 @@ DATA = {
             "Aşiran",
             "Segah"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Beyati",
             "Nihavend",
             "Acemaşiran",
@@ -620,14 +618,14 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Neva",
-            "Segah",
             "Dügah",
-            "Rast"
+            "Rast",
+            "Segah",
+            "Hicaz"
           ],
-          "nim_perdeler": [
-            "Hicaz",
+          "nim": [
             "Arak",
             "Aşiranın yegah"
           ]
@@ -675,14 +673,14 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Neva",
             "Hüseyni",
             "Dügah",
-            "Rast"
+            "Rast",
+            "Hicaz"
           ],
-          "nim_perdeler": [
-            "Hicaz",
+          "nim": [
             "Nihavend i dügah",
             "Nihavend",
             "Geveşt"
@@ -733,14 +731,14 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Rast",
             "Aşiran",
             "Yegah",
             "Dügah",
             "Segah"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Geveşt"
           ]
         }
@@ -787,13 +785,13 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Neva",
             "Çargah",
             "Dügah",
             "Rast"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Buselik",
             "Buse lik",
             "Geveşt"
@@ -844,14 +842,14 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Neva",
             "Çargah",
-            "Segah",
             "Dügah",
-            "Rast"
+            "Rast",
+            "Segah"
           ],
-          "nim_perdeler": []
+          "nim": []
         }
       }
     },
@@ -915,19 +913,19 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
-            "Tiz çargah",
-            "Tiz segah",
+          "tam": [
             "Muhayyer",
             "Gerdaniye",
             "Hüseyni",
             "Çargah",
-            "Segah",
-            "Dügah"
-          ],
-          "nim_perdeler": [
-            "Mu hayyer",
+            "Dügah",
             "Eviç",
+            "Segah"
+          ],
+          "nim": [
+            "Tiz çargah",
+            "Tiz segah",
+            "Mu hayyer",
             "Saha",
             "Saba"
           ]
@@ -986,12 +984,12 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Dügah",
-            "Segah",
-            "Çargah"
+            "Çargah",
+            "Segah"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Zirgüle",
             "Saha",
             "Arak",
@@ -1057,18 +1055,18 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Muhayyer",
             "Gerdaniye",
+            "Acem",
             "Hüseyni",
             "Çargah",
-            "Segah",
             "Dügah",
-            "Rast"
+            "Rast",
+            "Segah"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Sünbüle",
-            "Acem",
             "Saba",
             "Saha",
             "Kürdi"
@@ -1140,9 +1138,7 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
-            "Tiz çargah",
-            "Tiz segah",
+          "tam": [
             "Muhayyer",
             "Gerdaniye",
             "Hüseyni",
@@ -1150,15 +1146,17 @@ DATA = {
             "Çargah",
             "Dügah",
             "Rast",
-            "Tiz neva"
+            "Acem",
+            "Eviç"
           ],
-          "nim_perdeler": [
-            "Eviç",
+          "nim": [
+            "Tiz çargah",
+            "Tiz segah",
             "Buselik",
+            "Tiz neva",
             "Sünbüle",
             "Mu hayyer",
             "Mahur",
-            "Acem",
             "Zirgüle"
           ]
         }
@@ -1205,17 +1203,16 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
+            "Acem",
             "Hüseyni",
             "Neva",
             "Çargah",
-            "Segah",
             "Dügah",
-            "Rast"
+            "Rast",
+            "Segah"
           ],
-          "nim_perdeler": [
-            "Acem"
-          ]
+          "nim": []
         }
       }
     },
@@ -1270,19 +1267,19 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
+            "Acem",
             "Hüseyni",
             "Çargah",
             "Muhayyer",
-            "Tiz segah",
-            "Segah",
-            "Dügah"
-          ],
-          "nim_perdeler": [
-            "Acem",
-            "Hisar",
+            "Dügah",
             "Eviç",
+            "Segah"
+          ],
+          "nim": [
+            "Hisar",
             "Şehnaz",
+            "Tiz segah",
             "Saba"
           ]
         }
@@ -1331,17 +1328,16 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Gerdaniye",
             "Hüseyni",
+            "Acem",
             "Çargah",
-            "Segah",
-            "Dügah"
-          ],
-          "nim_perdeler": [
+            "Dügah",
             "Eviç",
-            "Acem"
-          ]
+            "Segah"
+          ],
+          "nim": []
         }
       }
     },
@@ -1409,28 +1405,28 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Muhayyer",
             "Gerdaniye",
             "Hüseyni",
             "Çargah",
-            "Segah",
             "Rast",
             "Neva",
-            "Dügah"
+            "Dügah",
+            "Eviç",
+            "Segah",
+            "Hicaz"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Tiz çargalı",
             "Tiz buselik",
             "Şehnaz",
             "Gerda niye",
-            "Eviç",
             "Saha",
             "Çargalı",
             "Segalı",
             "Dügalı",
-            "Geveşt",
-            "Hicaz"
+            "Geveşt"
           ]
         }
       }
@@ -1489,20 +1485,20 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Çargah",
             "Dügah",
-            "Segah",
             "Gerdaniye",
-            "Hüseyni",
-            "Neva"
-          ],
-          "nim_perdeler": [
-            "Saha",
             "Acem",
+            "Hüseyni",
+            "Neva",
+            "Segah",
+            "Hicaz"
+          ],
+          "nim": [
+            "Saha",
             "Zirgüle",
             "Arak",
-            "Hicaz",
             "Nihavend"
           ]
         }
@@ -1557,20 +1553,20 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Dügah",
             "Rast",
             "Hüseyni",
             "Gerdaniye",
-            "Neva"
+            "Neva",
+            "Eviç"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Arak",
             "Dügalı",
             "Segalı",
             "Çargalı",
-            "Ne va",
-            "Eviç"
+            "Ne va"
           ]
         }
       }
@@ -1612,12 +1608,12 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Muhayyer",
             "Hüseyni",
             "Çargah"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Şehnaz",
             "Mahur",
             "Hisar",
@@ -1670,16 +1666,15 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Neva",
-            "Segah",
             "Dügah",
             "Rast",
-            "Hüseyni"
-          ],
-          "nim_perdeler": [
+            "Hüseyni",
+            "Segah",
             "Hicaz"
-          ]
+          ],
+          "nim": []
         }
       }
     },
@@ -1723,17 +1718,17 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Muhayyer",
             "Hüseyni",
             "Neva",
-            "Segah",
-            "Dügah"
-          ],
-          "nim_perdeler": [
-            "Şehnaz",
+            "Dügah",
             "Eviç",
-            "Hicaz",
+            "Segah",
+            "Hicaz"
+          ],
+          "nim": [
+            "Şehnaz",
             "Zirgüle"
           ]
         }
@@ -1790,17 +1785,17 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Gerdaniye",
             "Hüseyni",
             "Neva",
-            "Segah",
-            "Dügah"
-          ],
-          "nim_perdeler": [
-            "Hüseyiıi",
+            "Dügah",
             "Eviç",
+            "Segah",
             "Hicaz"
+          ],
+          "nim": [
+            "Hüseyiıi"
           ]
         }
       }
@@ -1854,15 +1849,15 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Dügah",
             "Hüseyni",
             "Neva",
+            "Aşiran",
             "Segah",
-            "Aşiran"
+            "Hicaz"
           ],
-          "nim_perdeler": [
-            "Hicaz",
+          "nim": [
             "Zirgüle",
             "Arak",
             "Dü gah"
@@ -1938,18 +1933,18 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Neva",
             "Hüseyni",
+            "Acem",
             "Gerdaniye",
-            "Segah",
             "Dügah",
             "Rast",
-            "Çargah"
+            "Çargah",
+            "Segah",
+            "Hicaz"
           ],
-          "nim_perdeler": [
-            "Hicaz",
-            "Acem",
+          "nim": [
             "Arak",
             "Zir güle",
             "Saha",
@@ -2046,24 +2041,24 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Muhayyer",
+            "Acem",
             "Hüseyni",
             "Neva",
             "Dügah",
-            "Segah",
             "Gerdaniye",
             "Çargah",
-            "Rast"
+            "Rast",
+            "Eviç",
+            "Segah",
+            "Hicaz"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Şehnaz",
-            "Acem",
             "Sünbüle",
-            "Hicaz",
             "Nihavend",
             "Zirgüle",
-            "Eviç",
             "Hi caz",
             "Dügilli",
             "Bu selik",
@@ -2123,16 +2118,16 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
-            "Neva",
-            "Segah",
-            "Muhayyer",
-            "Hüseyni"
-          ],
-          "nim_perdeler": [
-            "Eviç",
+          "tam": [
             "Acem",
-            "Hicaz",
+            "Neva",
+            "Muhayyer",
+            "Hüseyni",
+            "Eviç",
+            "Segah",
+            "Hicaz"
+          ],
+          "nim": [
             "Nihavend",
             "Şehnaz",
             "Segilli",
@@ -2200,17 +2195,17 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
-            "Segah",
+          "tam": [
             "Neva",
             "Çargah",
-            "Hüseyni"
+            "Hüseyni",
+            "Acem",
+            "Segah"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Beyati",
             "Ni havend",
-            "Nihavend",
-            "Acem"
+            "Nihavend"
           ]
         }
       }
@@ -2258,13 +2253,13 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Neva",
+            "Hüseyni",
             "Segah",
-            "Hüseyni"
+            "Hicaz"
           ],
-          "nim_perdeler": [
-            "Hicaz",
+          "nim": [
             "Nihavend"
           ]
         }
@@ -2318,14 +2313,14 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
-            "Segah",
+          "tam": [
             "Çargah",
             "Rast",
             "Aşiran",
-            "Yegah"
+            "Yegah",
+            "Segah"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Saha",
             "Nihavend",
             "Geveşt"
@@ -2376,14 +2371,14 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
-            "Segah",
+          "tam": [
             "Neva",
             "Çargah",
             "Dügah",
-            "Rast"
+            "Rast",
+            "Segah"
           ],
-          "nim_perdeler": []
+          "nim": []
         }
       }
     },
@@ -2438,18 +2433,17 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
+            "Acem",
             "Muhayyer",
             "Gerdaniye",
             "Hüseyni",
             "Neva",
             "Çargah",
-            "Segah",
-            "Dügah"
+            "Dügah",
+            "Segah"
           ],
-          "nim_perdeler": [
-            "Acem"
-          ]
+          "nim": []
         }
       }
     },
@@ -2511,18 +2505,18 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Neva",
             "Hüseyni",
+            "Acem",
             "Muhayyer",
             "Çargah",
+            "Dügah",
             "Segah",
-            "Dügah"
+            "Hicaz"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Buselik",
-            "Hicaz",
-            "Acem",
             "Rieva",
             "Şehnaz",
             "Saha"
@@ -2616,21 +2610,21 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Muhayyer",
             "Gerdaniye",
+            "Acem",
             "Hüseyni",
             "Neva",
             "Çargah",
             "Dügah",
-            "Rast"
-          ],
-          "nim_perdeler": [
-            "Sünbüle",
-            "Acem",
-            "Hicaz",
-            "Nihavend",
+            "Rast",
             "Eviç",
+            "Hicaz"
+          ],
+          "nim": [
+            "Sünbüle",
+            "Nihavend",
             "Hü seyni",
             "Inuhayyer",
             "Kürdi"
@@ -2706,17 +2700,16 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Neva",
             "Çargah",
-            "Segah",
             "Hüseyni",
-            "Dügah"
-          ],
-          "nim_perdeler": [
             "Acem",
+            "Dügah",
+            "Segah",
             "Hicaz"
-          ]
+          ],
+          "nim": []
         }
       }
     },
@@ -2765,7 +2758,8 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
+            "Acem",
             "Muhayyer",
             "Gerdaniye",
             "Neva",
@@ -2775,8 +2769,7 @@ DATA = {
             "Yegah",
             "Aşiran"
           ],
-          "nim_perdeler": [
-            "Acem",
+          "nim": [
             "Hü seyni",
             "Acemaşiran"
           ]
@@ -2828,14 +2821,14 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Neva",
             "Hüseyni",
-            "Dügah"
+            "Dügah",
+            "Hicaz"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Buselik",
-            "Hicaz",
             "Hic az"
           ]
         }
@@ -2886,15 +2879,14 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Gerdaniye",
-            "Hüseyni",
-            "Neva"
-          ],
-          "nim_perdeler": [
             "Acem",
+            "Hüseyni",
+            "Neva",
             "Hicaz"
-          ]
+          ],
+          "nim": []
         }
       }
     },
@@ -2945,15 +2937,15 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Çargah",
-            "Segah",
             "Dügah",
             "Rast",
             "Aşiran",
-            "Yegah"
+            "Yegah",
+            "Segah"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Ne va",
             "Ara k",
             "Arak",
@@ -3011,16 +3003,16 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Neva",
             "Dügah",
             "Muhayyer",
             "Hüseyni",
             "Rast",
-            "Yegah"
+            "Yegah",
+            "Hicaz"
           ],
-          "nim_perdeler": [
-            "Hicaz",
+          "nim": [
             "Nihavend",
             "Şehnaz",
             "Aceın",
@@ -3098,16 +3090,16 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
-            "Segah",
+          "tam": [
             "Çargah",
             "Neva",
+            "Acem",
             "Hüseyni",
             "Dügah",
-            "Rast"
+            "Rast",
+            "Segah"
           ],
-          "nim_perdeler": [
-            "Acem",
+          "nim": [
             "Saba",
             "Zir güle",
             "Arak",
@@ -3170,17 +3162,17 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Rast",
             "Dügah",
+            "Acem",
             "Hüseyni",
             "Neva",
             "Çargah",
             "Segah"
           ],
-          "nim_perdeler": [
-            "Geveşt",
-            "Acem"
+          "nim": [
+            "Geveşt"
           ]
         }
       }
@@ -3228,13 +3220,13 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Neva",
             "Çargah",
-            "Segah",
-            "Dügah"
+            "Dügah",
+            "Segah"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Beyati"
           ]
         }
@@ -3325,22 +3317,22 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
+            "Acem",
             "Gerdaniye",
             "Hüseyni",
             "Neva",
             "Çargah",
-            "Segah",
             "Dügah",
-            "Rast"
+            "Rast",
+            "Segah",
+            "Hicaz"
           ],
-          "nim_perdeler": [
-            "Acem",
+          "nim": [
             "Gerdaııiye",
             "Beyati",
             "Sa ba",
             "Mahur",
-            "Hicaz",
             "Nihavend",
             "Geveşt",
             "Şorizen"
@@ -3401,16 +3393,16 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Neva",
             "Gerdaniye",
             "Muhayyer",
             "Dügah",
             "Rast",
-            "Yegah"
+            "Yegah",
+            "Hicaz"
           ],
-          "nim_perdeler": [
-            "Hicaz",
+          "nim": [
             "Beyati",
             "Mahur",
             "Mu hayyer",
@@ -3501,20 +3493,20 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Neva",
             "Çargah",
-            "Segah",
             "Dügah",
             "Rast",
             "Hüseyni",
-            "Aşiran",
-            "Yegah"
-          ],
-          "nim_perdeler": [
-            "Buselik",
-            "Hicaz",
             "Acem",
+            "Aşiran",
+            "Yegah",
+            "Segah",
+            "Hicaz"
+          ],
+          "nim": [
+            "Buselik",
             "Arak",
             "Hü seyni"
           ]
@@ -3610,19 +3602,19 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Neva",
             "Gerdaniye",
             "Hüseyni",
             "Çargah",
-            "Segah",
             "Dügah",
             "Rast",
             "Muhayyer",
-            "Tiz çargah"
-          ],
-          "nim_perdeler": [
             "Eviç",
+            "Segah"
+          ],
+          "nim": [
+            "Tiz çargah",
             "Sünbüle",
             "Beya ti",
             "Geveşt"
@@ -3698,20 +3690,20 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Hüseyni",
+            "Acem",
             "Neva",
             "Çargah",
             "Dügah",
-            "Rast"
+            "Rast",
+            "Eviç"
           ],
-          "nim_perdeler": [
-            "Acem",
+          "nim": [
             "Buselik",
             "Hisar",
             "Muhay yer",
             "Şehnaz",
-            "Eviç",
             "Zirgüle",
             "Bu selik"
           ]
@@ -3811,19 +3803,20 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Hüseyni",
             "Muhayyer",
             "Çargah",
             "Dügah",
             "Gerdaniye",
+            "Neva",
+            "Eviç",
             "Segah",
-            "Neva"
+            "Hicaz"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Hisar",
             "Şehnaz",
-            "Eviç",
             "Buselik",
             "Zirgüle",
             "Buse lik",
@@ -3831,7 +3824,6 @@ DATA = {
             "Mahur",
             "Mu hayyer",
             "Sünbüle",
-            "Hicaz",
             "Saba"
           ]
         }
@@ -3954,25 +3946,25 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Hüseyni",
-            "Segah",
             "Dügah",
             "Gerdaniye",
             "Neva",
             "Rast",
             "Çargah",
-            "Muhayyer"
+            "Acem",
+            "Muhayyer",
+            "Segah",
+            "Eviç",
+            "Hicaz"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Hisar",
-            "Hicaz",
             "Beyati",
             "Zirgüle",
-            "Eviç",
             "Muhay yer",
             "Ne va",
-            "Acem",
             "Buselik",
             "Arak",
             "Hüsey ni"
@@ -4025,15 +4017,15 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Hüseyni",
             "Muhayyer",
             "Neva",
             "Çargah",
-            "Segah",
-            "Dügah"
+            "Dügah",
+            "Segah"
           ],
-          "nim_perdeler": []
+          "nim": []
         }
       }
     },
@@ -4089,16 +4081,16 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Çargah",
             "Neva",
             "Hüseyni",
             "Gerdaniye",
             "Dügah",
-            "Rast"
+            "Rast",
+            "Eviç"
           ],
-          "nim_perdeler": [
-            "Eviç",
+          "nim": [
             "Kürdi"
           ]
         }
@@ -4183,7 +4175,7 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Hüseyni",
             "Neva",
             "Gerdaniye",
@@ -4193,10 +4185,10 @@ DATA = {
             "Aşiran",
             "Yegah",
             "Muhayyer",
+            "Eviç",
             "Segah"
           ],
-          "nim_perdeler": [
-            "Eviç",
+          "nim": [
             "Kürdi",
             "Acemaşiran",
             "Arak"
@@ -4259,18 +4251,18 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Dügah",
             "Hüseyni",
             "Neva",
             "Gerdaniye",
-            "Aşiran"
+            "Aşiran",
+            "Eviç",
+            "Hicaz"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Arak",
             "Zirgüle",
-            "Eviç",
-            "Hicaz",
             "Buselik",
             "Hi caz"
           ]
@@ -4353,18 +4345,18 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Hüseyni",
             "Muhayyer",
             "Gerdaniye",
             "Neva",
             "Çargah",
-            "Segah",
-            "Dügah"
-          ],
-          "nim_perdeler": [
-            "Eviç",
+            "Dügah",
             "Acem",
+            "Eviç",
+            "Segah"
+          ],
+          "nim": [
             "Gerd miye"
           ]
         }
@@ -4418,17 +4410,17 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Çargah",
-            "Segah",
             "Dügah",
             "Gerdaniye",
-            "Hüseyni",
-            "Rast"
-          ],
-          "nim_perdeler": [
-            "Saha",
             "Acem",
+            "Hüseyni",
+            "Rast",
+            "Segah"
+          ],
+          "nim": [
+            "Saha",
             "Arak"
           ]
         }
@@ -4482,12 +4474,12 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Çargah",
             "Dügah",
             "Rast"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Nihavend",
             "Saha",
             "Arak",
@@ -4547,18 +4539,18 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Muhayyer",
             "Gerdaniye",
             "Hüseyni",
             "Neva",
             "Çargah",
             "Dügah",
-            "Rast"
-          ],
-          "nim_perdeler": [
+            "Rast",
             "Eviç",
-            "Hicaz",
+            "Hicaz"
+          ],
+          "nim": [
             "Arak"
           ]
         }
@@ -4664,19 +4656,19 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Muhayyer",
             "Gerdaniye",
             "Hüseyni",
             "Neva",
             "Çargah",
-            "Segah",
             "Dügah",
-            "Rast"
-          ],
-          "nim_perdeler": [
-            "Eviç",
+            "Rast",
             "Acem",
+            "Eviç",
+            "Segah"
+          ],
+          "nim": [
             "Ger daniye",
             "Beyati"
           ]
@@ -4766,20 +4758,20 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
-            "Tiz segah",
+          "tam": [
             "Gerdaniye",
             "Neva",
-            "Segah",
             "Rast",
             "Dügah",
-            "Hüseyni"
-          ],
-          "nim_perdeler": [
+            "Hüseyni",
             "Eviç",
+            "Segah",
+            "Hicaz"
+          ],
+          "nim": [
+            "Tiz segah",
             "Sünbüle",
             "Aceın",
-            "Hicaz",
             "Nihavend",
             "Inuhayyer",
             "Ger daniye",
@@ -4847,20 +4839,20 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Neva",
             "Hüseyni",
+            "Acem",
             "Dügah",
             "Çargah",
-            "Segah",
             "Rast",
             "Aşiran",
-            "Yegah"
+            "Yegah",
+            "Segah",
+            "Hicaz"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Buselik",
-            "Hicaz",
-            "Acem",
             "Arak"
           ]
         }
@@ -4915,17 +4907,17 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Muhayyer",
             "Gerdaniye",
             "Hüseyni",
             "Neva",
             "Çargah",
             "Dügah",
-            "Rast"
+            "Rast",
+            "Eviç"
           ],
-          "nim_perdeler": [
-            "Eviç",
+          "nim": [
             "Buselik",
             "Arak"
           ]
@@ -4984,19 +4976,19 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Neva",
             "Muhayyer",
             "Gerdaniye",
             "Dügah",
             "Rast",
             "Çargah",
-            "Segah"
-          ],
-          "nim_perdeler": [
             "Eviç",
+            "Segah",
+            "Hicaz"
+          ],
+          "nim": [
             "Büseyni",
-            "Hicaz",
             "Buselik",
             "Hüsey ni",
             "Anık"
@@ -5059,18 +5051,18 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Hüseyni",
             "Muhayyer",
             "Gerdaniye",
             "Neva",
             "Çargah",
-            "Segah",
             "Dügah",
-            "Rast"
-          ],
-          "nim_perdeler": [
+            "Rast",
             "Eviç",
+            "Segah"
+          ],
+          "nim": [
             "Iıihavend",
             "Arak"
           ]
@@ -5129,14 +5121,14 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Rast",
-            "Segah",
             "Dügah",
             "Aşiran",
-            "Yegah"
+            "Yegah",
+            "Segah"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Arak",
             "Dügillı",
             "Buselik"
@@ -5196,17 +5188,17 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
-            "Segah",
+          "tam": [
             "Neva",
             "Çargah",
             "Hüseyni",
-            "Rast"
+            "Rast",
+            "Segah",
+            "Eviç"
           ],
-          "nim_perdeler": [
+          "nim": [
             "Segillı",
             "Nihavend",
-            "Eviç",
             "Çargillı",
             "Dügillı",
             "Arak"
@@ -5265,16 +5257,16 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Gerdaniye",
+            "Acem",
             "Hüseyni",
             "Neva",
             "Çargah",
             "Rast",
             "Dügah"
           ],
-          "nim_perdeler": [
-            "Acem",
+          "nim": [
             "Buselik",
             "Dügillı"
           ]
@@ -5368,22 +5360,22 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
+            "Acem",
             "Hüseyni",
             "Neva",
             "Çargah",
-            "Segah",
             "Dügah",
-            "Rast"
+            "Rast",
+            "Segah",
+            "Hicaz"
           ],
-          "nim_perdeler": [
-            "Acem",
+          "nim": [
             "Be yati",
             "Beyati",
             "Kür di",
             "Ger daniye",
             "EviÇ",
-            "Hicaz",
             "Çıp gah",
             "Saha",
             "Arak"
@@ -5438,18 +5430,18 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Hüseyni",
             "Neva",
-            "Segah",
             "Dügah",
             "Rast",
-            "Çargah"
-          ],
-          "nim_perdeler": [
-            "Hicaz",
-            "Gerda niye",
+            "Çargah",
             "Eviç",
+            "Segah",
+            "Hicaz"
+          ],
+          "nim": [
+            "Gerda niye",
             "Arak"
           ]
         }
@@ -5559,22 +5551,22 @@ DATA = {
           "source": "derived_from_rank_order"
         },
         "kullanilan_perdeler": {
-          "asil_perdeler": [
+          "tam": [
             "Neva",
             "Hüseyni",
             "Gerdaniye",
             "Çargah",
-            "Segah",
             "Dügah",
             "Rast",
             "Muhayyer",
-            "Aşiran"
-          ],
-          "nim_perdeler": [
+            "Aşiran",
             "Eviç",
-            "Arak",
-            "Şehnaz",
+            "Segah",
             "Hicaz"
+          ],
+          "nim": [
+            "Arak",
+            "Şehnaz"
           ]
         }
       }
@@ -5589,6 +5581,7 @@ DATA = {
       "dik_acem_asiran": "irak"
     },
     "terkib_notlari": {
+      "hicaz": "Dik kürdi davranışı segâh olarak değerlendirilir.",
       "sehnaz": "Şehnaz terkibinde dik acem yerine evc kullanılır."
     }
   }
