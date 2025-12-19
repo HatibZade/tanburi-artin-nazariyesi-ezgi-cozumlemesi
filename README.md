@@ -1,1 +1,1 @@
-FINAL CLEAN – sadece izin verilen perde adları vardır.
+Tanburi Artin – Makam olasılık motoru (kilitli).
