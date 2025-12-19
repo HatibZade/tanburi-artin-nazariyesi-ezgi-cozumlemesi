@@ -1,1 +1,1 @@
-Perde listeleri alfabetik (Türkçe) sıralı sürüm.
+v7: Nim perdelere Acem-Aşîran eklendi, alfabetik.

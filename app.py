@@ -6,8 +6,8 @@ st.set_page_config(page_title="Tanburi Artin – Makam Olasılık Motoru", layou
 DATA = json.load(open("data/tanburi_kucuk_artin_data.json", encoding="utf-8"))
 
 ASIL_CORE = ['Aşîrân', 'Dügâh', 'Evc', 'Gerdâniye', 'Hüseynî', 'Irâk', 'Muhayyer', 'Nevâ', 'Rast', 'Segâh', 'Tiz Nevâ', 'Tiz Segâh', 'Tiz Çargâh', 'Yegâh', 'Çargâh']
-NIM_OPTIONS = ['Acem', 'Bayâtî', 'Buselik', 'Geveşt', 'Hicaz', 'Hisâr', 'Mahur', 'Nihâvend (Kürdî)', 'Pest Hicaz (Nerm Hicaz)', 'Sabâ', 'Sünbüle', 'Zengûle', 'Şehnaz', 'Şorizen (Nerm Bayâtî)']
-ALLOWED = ['Aşîrân', 'Dügâh', 'Evc', 'Gerdâniye', 'Hüseynî', 'Irâk', 'Muhayyer', 'Nevâ', 'Rast', 'Segâh', 'Tiz Nevâ', 'Tiz Segâh', 'Tiz Çargâh', 'Yegâh', 'Çargâh', 'Acem', 'Bayâtî', 'Buselik', 'Geveşt', 'Hicaz', 'Hisâr', 'Mahur', 'Nihâvend (Kürdî)', 'Pest Hicaz (Nerm Hicaz)', 'Sabâ', 'Sünbüle', 'Zengûle', 'Şehnaz', 'Şorizen (Nerm Bayâtî)']
+NIM_OPTIONS = ['Acem', 'Acem-Aşîran', 'Bayâtî', 'Buselik', 'Geveşt', 'Hicaz', 'Hisâr', 'Mahur', 'Nihâvend (Kürdî)', 'Pest Hicaz (Nerm Hicaz)', 'Sabâ', 'Sünbüle', 'Zengûle', 'Şehnaz', 'Şorizen (Nerm Bayâtî)']
+ALLOWED = ['Aşîrân', 'Dügâh', 'Evc', 'Gerdâniye', 'Hüseynî', 'Irâk', 'Muhayyer', 'Nevâ', 'Rast', 'Segâh', 'Tiz Nevâ', 'Tiz Segâh', 'Tiz Çargâh', 'Yegâh', 'Çargâh', 'Acem', 'Acem-Aşîran', 'Bayâtî', 'Buselik', 'Geveşt', 'Hicaz', 'Hisâr', 'Mahur', 'Nihâvend (Kürdî)', 'Pest Hicaz (Nerm Hicaz)', 'Sabâ', 'Sünbüle', 'Zengûle', 'Şehnaz', 'Şorizen (Nerm Bayâtî)']
 
 st.title("Tanburi Küçük Artin – Makam Olasılık Motoru (Kilitli)")
 
@@ -29,4 +29,4 @@ with c3:
     asil = st.multiselect("Asıl Perdeler (tam)", ASIL_CORE)
     nim = st.multiselect("Nim Perdeler (Artin)", NIM_OPTIONS)
 
-st.caption("Perde listeleri alfabetik sıradadır.")
+st.caption("Perde listeleri alfabetik sıralıdır. Nim perdeler Artin listesine göredir.")
