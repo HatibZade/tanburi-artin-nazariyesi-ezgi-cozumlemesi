@@ -68,19 +68,22 @@ st.subheader("İncelenen Eser – Giriş")
 c1, c2, c3 = st.columns(3, gap="large")
 
 with c1:
-    karar = st.selectbox("Karar perdesi", ["—"] + ALLOWED, index=0)
-    merkez = st.selectbox("Merkez (kutb)", ["—"] + ALLOWED, index=0)
-    bas1 = st.selectbox("Başlangıç civarı (1)", ["—"] + ALLOWED, index=0)
-    bas2 = st.selectbox("Başlangıç civarı (2)", ["—"] + ALLOWED, index=0)
+    # ONLY tam perdeler
+    karar = st.selectbox("Karar perdesi (tam)", ["—"] + ASIL_CORE, index=0)
+    merkez = st.selectbox("Merkez (kutb) (tam)", ["—"] + ASIL_CORE, index=0)
+    bas1 = st.selectbox("Başlangıç civarı (1) (tam)", ["—"] + ASIL_CORE, index=0)
+    bas2 = st.selectbox("Başlangıç civarı (2) (tam)", ["—"] + ASIL_CORE, index=0)
 
 with c2:
-    alt_sinir = st.selectbox("Alt sınır", ["—"] + ALLOWED, index=0)
-    ust_sinir = st.selectbox("Üst sınır", ["—"] + ALLOWED, index=0)
+    # tam + nim
+    alt_sinir = st.selectbox("Alt sınır (tam+nim)", ["—"] + ALLOWED, index=0)
+    ust_sinir = st.selectbox("Üst sınır (tam+nim)", ["—"] + ALLOWED, index=0)
     st.caption("Alt/üst sınır: ezginin ulaştığı en pest/en tiz perdeler.")
 
 with c3:
-    asil = st.multiselect("Asıl perdeler (tam perdeler)", ASIL_CORE)
-    nim = st.multiselect("Nim perdeler (diğer perdeler)", NIM_OPTIONS)
+    # full lists
+    asil = st.multiselect("Asıl Perdeler (tüm tam perdeler)", ASIL_CORE)
+    nim = st.multiselect("Nim Perdeler (tüm nim perdeler)", NIM_OPTIONS)
 
 st.markdown("#### Nazari Seyir (işaretleme)")
 f1, f2, f3, f4 = st.columns(4)
@@ -114,13 +117,14 @@ def compute_score(user, ref):
     raw = 0.0
     maxw = 0.0
 
+    # karar/merkez (tam)
     for key, w in [("karar", WEIGHTS["karar"]), ("merkez", WEIGHTS["merkez"])]:
         m = field_match(user.get(key), ref.get(key))
         if m is not None:
             raw += m*w
             maxw += w
 
-    # başlangıç civarı
+    # başlangıç civarı: bas1/bas2 vs ref_start
     ref_start = ref.get("agaz") or (ref.get("seq")[:1][0] if ref.get("seq") else None)
     if user.get("bas1")!="—" or user.get("bas2")!="—":
         maxw += WEIGHTS["baslangic"]
@@ -129,12 +133,14 @@ def compute_score(user, ref):
             hit = 1.0 if (user.get("bas1")==ref_start or user.get("bas2")==ref_start) else 0.0
         raw += hit*WEIGHTS["baslangic"]
 
+    # alt/ust (tam+nim)
     for key, w in [("alt_sinir", WEIGHTS["alt_sinir"]), ("ust_sinir", WEIGHTS["ust_sinir"])]:
         m = field_match(user.get(key), ref.get(key))
         if m is not None:
             raw += m*w
             maxw += w
 
+    # overlap
     if user.get("asil"):
         maxw += WEIGHTS["asil_perdeler"]
         raw += overlap_score(user["asil"], ref.get("asil_pitches")) * WEIGHTS["asil_perdeler"]
@@ -143,6 +149,7 @@ def compute_score(user, ref):
         maxw += WEIGHTS["nim_perdeler"]
         raw += overlap_score(user["nim"], ref.get("nim_pitches")) * WEIGHTS["nim_perdeler"]
 
+    # flags
     flags = {
         "ns_karar": user.get("ns_karar"),
         "ns_merkez": user.get("ns_merkez"),
