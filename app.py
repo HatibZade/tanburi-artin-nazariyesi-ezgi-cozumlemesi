@@ -1,63 +1,45 @@
-import json
-import os
-import streamlit as st
+import json, os, streamlit as st
 
-st.set_page_config(page_title="Tanburi Küçük Artin - Makam Tahlil", layout="wide")
+st.set_page_config(page_title="Tanburi Küçük Artin – 17'li Sistem", layout="wide")
 
 DATA_PATH = "data/tanburi_kucuk_artin_data.json"
 
-def _cache_key(path: str):
-    stat = os.stat(path)
-    return (stat.st_size, int(stat.st_mtime))
-
-@st.cache_data(show_spinner=False)
-def load_data(path: str, key):
+@st.cache_data
+def load_data(path):
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
-DATA = load_data(DATA_PATH, _cache_key(DATA_PATH))
+DATA = load_data(DATA_PATH)
 makamlar = DATA.get("makamlar", [])
 
-st.title("Tanburi Küçük Artin Nazariyesine Göre Makam/Terkib Tahlilleri")
-st.caption('Kaynak: Musikî Edvârı ("bir mızrab" seyir dizileri). Perde sınıflaması: Asıl perdeler + Nim perdeler (kilitli).')
+st.title("Tanburi Küçük Artin Nazariyesine Göre Makam / Terkib Analizi")
+st.markdown("""
+**Ses sistemi:** 17'li sistem  
+**Nazariyeci:** Tanburi Küçük Artin  
 
-left, right = st.columns([1, 2], gap="large")
+### Önemli Nazari Not
+- Dik Kürdi → **Segâh**
+- Dik Acem → **Evc**
+- Dik Acem-Aşiran → **Irâk**
+- **Şehnaz terkibinde** dik acem yerine **Evc** kullanılır.
+
+> Sisteme yalnızca **Artin perde adlarını** giriniz.
+""")
+
+left, right = st.columns([1,2])
 
 with left:
-    q = st.text_input("Ara (makam adı / id)", "")
-    filtered = makamlar
-    if q.strip():
-        ql = q.lower()
-        filtered = [m for m in makamlar if ql in (m.get("name_tr","").lower()) or ql in (m.get("id","").lower())]
-    st.write(f"Toplam kayıt: {len(filtered)} / {len(makamlar)}")
-
-    names = [f'{m.get("name_tr","(adsız)")}  —  {m.get("id","")}' for m in filtered]
-    idx = st.selectbox("Kayıt seç", list(range(len(names))), format_func=lambda i: names[i] if names else "(yok)", disabled=(len(names)==0))
+    q = st.text_input("Ara (makam / terkib)")
+    filtered = [m for m in makamlar if q.lower() in m.get("name_tr","").lower()] if q else makamlar
+    idx = st.selectbox("Seç", range(len(filtered)), format_func=lambda i: filtered[i].get("name_tr",""))
 
 with right:
-    if makamlar and filtered:
+    if filtered:
         m = filtered[idx]
         a = m.get("analysis", {})
-        st.subheader(m.get("name_tr","(adsız)"))
-
-        c1, c2, c3 = st.columns(3)
-        c1.metric("Âgâz", a.get("agaz", {}).get("perde", "—"))
-        c2.metric("Merkez", a.get("merkez", {}).get("perde", "—"))
-        c3.metric("Karar", a.get("karar", {}).get("perde", "—"))
-
-        c4, c5 = st.columns(2)
-        c4.metric("Alt sınır", a.get("alt_sinir", {}).get("perde", "—"))
-        c5.metric("Üst sınır", a.get("ust_sinir", {}).get("perde", "—"))
-
-        st.markdown("### Kullanılan perdeler")
-        kp = a.get("kullanilan_perdeler", {})
-        st.write("**Asıl perdeler:**", ", ".join(kp.get("asil_perdeler", [])) or "—")
-        st.write("**Nim perdeler:**", ", ".join(kp.get("nim_perdeler", [])) or "—")
-
-        st.markdown("### Seyir (bir mızrab)")
-        st.code(" → ".join(m.get("evidence", {}).get("seyir_sequence", [])) or "—", language="text")
-
-        with st.expander("Ham kayıt (JSON)"):
-            st.json(m)
-    else:
-        st.info("Gösterilecek kayıt yok.")
+        st.subheader(m.get("name_tr",""))
+        st.write("**Karar:**", a.get("karar",{}).get("perde","—"))
+        st.write("**Merkez:**", a.get("merkez",{}).get("perde","—"))
+        kp = a.get("kullanilan_perdeler",{})
+        st.write("**Asıl perdeler:**", ", ".join(kp.get("asil_perdeler",[])) or "—")
+        st.write("**Nim perdeler:**", ", ".join(kp.get("nim_perdeler",[])) or "—")
